@@ -17,30 +17,29 @@
       background: linear-gradient(90deg, #0a4b8a, #1976d2);
       color: white;
       text-align: center;
-      padding: 20px 10px 40px;
+      padding: 40px 10px 50px;
     }
 
     .logo-container img {
-      height: 250px;
-      width: auto;
-      object-fit: contain;
-      margin: 20px 0;
+      width: 90%;
+      max-width: 600px;
+      height: auto;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto 20px auto;
     }
 
     nav {
       background-color: #0a4b8a;
       display: flex;
       justify-content: center;
-      padding: 10px 0;
+      flex-wrap: wrap;
+      padding: 12px 0;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 20px;
+      margin: 0 18px;
       font-weight: bold;
       font-size: 16px;
     }
@@ -50,7 +49,7 @@
     }
 
     section {
-      padding: 40px 20px;
+      padding: 50px 20px;
       max-width: 1000px;
       margin: 0 auto;
     }
@@ -91,16 +90,16 @@
     .service-card {
       background-color: #e3f2fd;
       border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 25px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     footer {
       background-color: #0a4b8a;
       color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 30px;
+      padding: 25px;
+      margin-top: 40px;
     }
 
     iframe {
@@ -108,6 +107,13 @@
       width: 100%;
       height: 300px;
       border-radius: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .logo-container img {
+        width: 100%;
+        max-width: 350px;
+      }
     }
   </style>
 </head>
@@ -132,13 +138,13 @@
     <div class="about">
       <div class="about-text">
         <p>
-          En <strong>LABCCO</strong>, somos un laboratorio clínico con más de 30 años de trayectoria, 
-          especializado en servicios de salud ocupacional y análisis clínicos de alta calidad. 
-          Nuestro compromiso es brindar resultados confiables, rápidos y con el respaldo de 
+          En <strong>LABCCO</strong>, somos un laboratorio clínico con más de 30 años de trayectoria,
+          especializado en servicios de salud ocupacional y análisis clínicos de alta calidad.
+          Nuestro compromiso es brindar resultados confiables, rápidos y con el respaldo de
           profesionales altamente capacitados.
         </p>
         <p>
-          Contamos con equipos automatizados de química clínica, hematología y serología, 
+          Contamos con equipos automatizados de química clínica, hematología y serología,
           además de servicios complementarios como optometría, visiometría y consulta médica ocupacional.
         </p>
       </div>
@@ -172,9 +178,9 @@
       ✉️ contacto@labcco.com
     </p>
 
-    <iframe 
-      src="https://www.google.com/maps?q=Carrera%2048%20%2352-54%20Medell%C3%ADn%20Colombia&output=embed" 
-      allowfullscreen="" 
+    <iframe
+      src="https://www.google.com/maps?q=Carrera%2048%20%2352-54%20Medell%C3%ADn%20Colombia&output=embed"
+      allowfullscreen=""
       loading="lazy">
     </iframe>
   </section>
