@@ -1,197 +1,187 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LABCCO | Laboratorio Clínico y Salud Ocupacional</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LABCCO | Laboratorio Clínico</title>
   <style>
-    /* === ESTILOS GENERALES === */
     body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background-color: #f8fbff;
-      color: #003366;
+      padding: 0;
+      background-color: #ffffff;
+      color: #333;
     }
 
-    h1, h2 {
-      color: #004a99;
-    }
-
-    /* === ENCABEZADO Y MENÚ === */
     header {
-      background-color: #004a99;
+      background: linear-gradient(90deg, #0a4b8a, #1976d2);
       color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 50px;
-      flex-wrap: wrap;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex: 1;
+      text-align: center;
+      padding: 20px 10px 40px;
     }
 
     .logo-container img {
-      height: 160px; /* 🔹 más grande (antes 110px) */
+      height: 250px;
       width: auto;
       object-fit: contain;
-      margin: 10px 0;
+      margin: 20px 0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     nav {
+      background-color: #0a4b8a;
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       justify-content: center;
-      flex: 1;
+      padding: 10px 0;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 10px 20px;
-      font-weight: 500;
-      font-size: 1.1em;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 16px;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
-    /* === SECCIÓN PRINCIPAL (HERO) === */
-    section.hero {
-      background: linear-gradient(to right, #004a99, #0077cc);
-      color: white;
-      text-align: center;
-      padding: 90px 20px;
-    }
-
-    section.hero h1 {
-      font-size: 3em;
-      margin-bottom: 15px;
-      letter-spacing: 1px;
-    }
-
-    section.hero p {
-      font-size: 1.2em;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.6em;
-    }
-
-    /* === SECCIONES GENERALES === */
     section {
-      padding: 60px 20px;
+      padding: 40px 20px;
       max-width: 1000px;
       margin: 0 auto;
     }
 
-    ul {
-      line-height: 1.8em;
+    h1, h2 {
+      color: #0a4b8a;
+      text-align: center;
     }
 
-    /* === MAPA Y CONTACTO === */
-    iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
-      margin-top: 15px;
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+      text-align: justify;
+    }
+
+    .about img {
+      flex: 1;
+      min-width: 300px;
+      max-width: 400px;
       border-radius: 10px;
     }
 
-    /* === PIE DE PÁGINA === */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .service-card {
+      background-color: #e3f2fd;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
     footer {
-      background-color: #002b66;
+      background-color: #0a4b8a;
       color: white;
       text-align: center;
-      padding: 25px;
-      margin-top: 40px;
+      padding: 20px;
+      margin-top: 30px;
     }
 
-    footer p {
-      margin: 0;
-      font-size: 0.95em;
-    }
-
-    /* === RESPONSIVE === */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      nav a {
-        margin: 8px;
-      }
-
-      .logo-container img {
-        height: 120px;
-      }
+    iframe {
+      border: 0;
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
     }
   </style>
 </head>
-
 <body>
-  <!-- ENCABEZADO -->
+
   <header>
     <div class="logo-container">
       <img src="LABCCO-Photoroom.png" alt="Logo LABCCO">
     </div>
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#nosotros">Quiénes Somos</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+    <h1>Laboratorio Clínico LABCCO</h1>
+    <p>Comprometidos con la salud, la ciencia y la confianza.</p>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <h1>LABCCO</h1>
-    <p>Más de 30 años comprometidos con la salud y la calidad diagnóstica.<br>
-    Laboratorio clínico y servicios de salud ocupacional a su alcance.</p>
-  </section>
+  <nav>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 
-  <!-- NOSOTROS -->
   <section id="nosotros">
     <h2>Quiénes Somos</h2>
-    <p>
-      LABCCO es un laboratorio clínico con más de tres décadas de experiencia, especializado en análisis clínicos, salud ocupacional y servicios médicos integrales.
-      Nuestro compromiso es brindar resultados confiables con atención humana, tecnología moderna y cumplimiento normativo.
-    </p>
+    <div class="about">
+      <div class="about-text">
+        <p>
+          En <strong>LABCCO</strong>, somos un laboratorio clínico con más de 30 años de trayectoria, 
+          especializado en servicios de salud ocupacional y análisis clínicos de alta calidad. 
+          Nuestro compromiso es brindar resultados confiables, rápidos y con el respaldo de 
+          profesionales altamente capacitados.
+        </p>
+        <p>
+          Contamos con equipos automatizados de química clínica, hematología y serología, 
+          además de servicios complementarios como optometría, visiometría y consulta médica ocupacional.
+        </p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1581092334554-7d4a5aa7d06c?auto=format&fit=crop&w=800&q=80" alt="Laboratorio clínico">
+    </div>
   </section>
 
-  <!-- SERVICIOS -->
   <section id="servicios">
     <h2>Servicios</h2>
-    <ul>
-      <li>Laboratorio clínico (hematología, química, coprológicos, serología, TSH, HbA1c, entre otros)</li>
-      <li>Exámenes médicos ocupacionales (ingreso, retiro, periódicos y específicos)</li>
-      <li>Optometría y visiometría</li>
-      <li>Cabina audiométrica</li>
-      <li>Pruebas de colinesterasa eritrocitaria (especializadas para sectores agrícolas)</li>
-    </ul>
+    <div class="services">
+      <div class="service-card">
+        <h3>Laboratorio Clínico</h3>
+        <p>Química clínica, hematología, coprológicos, VDRL, VIH, colinesterasa y más.</p>
+      </div>
+      <div class="service-card">
+        <h3>Salud Ocupacional</h3>
+        <p>Exámenes médicos de ingreso, retiro y periódicos, optometría, visiometría y audiometría.</p>
+      </div>
+      <div class="service-card">
+        <h3>Apoyo a Empresas</h3>
+        <p>Servicios B2B en salud laboral, toma de muestras en campo y gestión integral en bienestar empresarial.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- CONTACTO -->
   <section id="contacto">
     <h2>Contáctanos</h2>
-    <p><strong>Dirección:</strong> Carrera 48 #52-54, Edificio Santa Bárbara</p>
-    <p><strong>Teléfono:</strong> (agregar número fijo o WhatsApp)</p>
-    <p><strong>Correo:</strong> info@labcco.com.co</p>
+    <p style="text-align:center;">
+      📍 Carrera 48 #52-54, Edificio Santa Bárbara<br>
+      📞 Teléfono: (604) 444 56 78<br>
+      ✉️ contacto@labcco.com
+    </p>
 
-    <iframe
-      src="https://www.google.com/maps?q=Carrera+48+%2352-54+Santa+Bárbara,+Colombia&output=embed">
+    <iframe 
+      src="https://www.google.com/maps?q=Carrera%2048%20%2352-54%20Medell%C3%ADn%20Colombia&output=embed" 
+      allowfullscreen="" 
+      loading="lazy">
     </iframe>
   </section>
 
-  <!-- PIE DE PÁGINA -->
   <footer>
     <p>© 2025 LABCCO. Todos los derechos reservados.</p>
   </footer>
+
 </body>
 </html>
