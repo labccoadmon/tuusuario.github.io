@@ -7,22 +7,19 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ---------- RESET & BASE ---------- */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
     body {
       font-family: 'Outfit', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       color: #10324a;
       background: #fff;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
       line-height: 1.5;
     }
     a { color: inherit; text-decoration: none; }
 
     /* ========== TOP BAR ========== */
     .top-bar {
-      background: #33ccff;          /* azul elegido */
+      background: #33ccff;
       color: #ffffff;
       display: flex;
       justify-content: center;
@@ -34,34 +31,30 @@
       left: 0;
       right: 0;
       z-index: 1400;
-      font-weight: 700;            /* negrita */
+      font-weight: 700;
       font-size: 15px;
     }
     .top-bar a { color: #fff; display:inline-flex; gap:8px; align-items:center; }
     .top-bar .horario { text-transform: lowercase; }
-
-    /* spacer para compensar top-bar fija */
     .spacer-top { height: 46px; }
 
     /* ========== NAVBAR ========== */
     .navbar {
       position: sticky;
-      top: 46px; /* justo debajo de top-bar */
+      top: 46px;
       background: #fff;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      padding: 10px 40px; /* espacio lateral */
+      padding: 10px 40px;
       box-shadow: 0 1px 6px rgba(16,50,74,0.06);
       z-index: 1350;
-      /* no fijamos altura: en JS calculamos espacio dinámico */
     }
 
     .brand { display:flex; align-items:center; gap: 16px; }
-    /* tamaño del logo ajustado a 200px */
     .brand img {
-      height: 200px; /* <-- tamaño final pedido */
+      height: 100px; /* tamaño ajustado */
       width: auto;
       display: block;
       max-width: 100%;
@@ -82,7 +75,7 @@
     }
     .nav-links a:hover { color: #0077cc; }
 
-    /* ========== HERO / BANNER (Pexels) ========== */
+    /* ========== HERO / BANNER ========== */
     .hero {
       position: relative;
       min-height: 60vh;
@@ -108,7 +101,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18)); /* overlay ligero */
+      background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18));
       z-index: 1;
     }
 
@@ -153,7 +146,6 @@
 
     .map-wrap { max-width:1100px; margin: 12px auto; border-radius:8px; overflow:hidden; }
 
-    /* ========== FOOTER ========== */
     footer {
       background:#10324a;
       color:#fff;
@@ -162,45 +154,36 @@
       margin-top: 16px;
     }
 
-    /* ========== RESPONSIVE adjustments ========== */
-    @media (max-width: 1200px) {
-      .brand img { height: 160px; }
-    }
     @media (max-width: 900px) {
-      .top-bar { gap: 20px; font-size:14px; padding:8px 12px; }
-      .brand img { height: 140px; }
+      .brand img { height: 80px; }
       .nav-links { gap: 16px; }
       .hero h1 { font-size: 28px; }
-      .hero p { font-size: 16px; }
     }
     @media (max-width: 520px) {
-      .top-bar { flex-direction: column; gap: 8px; padding: 10px; font-size:13px; }
-      .navbar { flex-direction: column; align-items: center; padding: 12px 12px; }
-      .brand img { height: 90px; margin-bottom: 8px; }
+      .top-bar { flex-direction: column; gap: 8px; font-size:13px; padding:10px; }
+      .navbar { flex-direction: column; padding: 12px; }
+      .brand img { height: 70px; margin-bottom: 8px; }
       .nav-links { justify-content: center; flex-wrap: wrap; gap: 12px; }
-      .hero { min-height: 50vh; }
     }
   </style>
 </head>
 <body>
   <!-- TOP BAR -->
-  <div class="top-bar" role="region" aria-label="Información de contacto">
-    <a href="mailto:calidad@labccosas.com" aria-label="Enviar correo a calidad">✉ calidad@labccosas.com</a>
-    <a href="https://wa.me/573128274796" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">📱 312 827 4796</a>
-    <span class="horario" aria-hidden="false">🕒 lun - vie 7am - 12m / 2pm - 5pm | sáb 8am - 11am</span>
+  <div class="top-bar">
+    <a href="mailto:calidad@labccosas.com">✉ calidad@labccosas.com</a>
+    <a href="https://wa.me/573128274796" target="_blank" rel="noopener">📱 312 827 4796</a>
+    <span class="horario">🕒 lun - vie 7am - 12m / 2pm - 5pm | sáb 8am - 11am</span>
   </div>
 
-  <!-- spacer para compensar top-bar fija -->
-  <div class="spacer-top" aria-hidden="true"></div>
+  <div class="spacer-top"></div>
 
   <!-- NAVBAR -->
-  <header class="navbar" role="banner" aria-label="Barra de navegación principal">
+  <header class="navbar">
     <div class="brand">
-      <!-- Asegúrate que LABCCO-Photoroom.png exista en la raíz -->
       <img src="LABCCO-Photoroom.png" alt="Logo LABCCO" id="siteLogo" />
     </div>
 
-    <nav class="nav-links" role="navigation" aria-label="Enlaces principales">
+    <nav class="nav-links">
       <a href="#inicio">Inicio</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#servicios">Servicios</a>
@@ -208,12 +191,11 @@
     </nav>
   </header>
 
-  <!-- spacer dinámico que colocaremos con JS (evita tapar contenido por las barras fijas) -->
-  <div id="spacer-dynamic" aria-hidden="true"></div>
+  <div id="spacer-dynamic"></div>
 
-  <!-- HERO / BANNER -->
-  <section class="hero" id="inicio" role="region" aria-label="Sección principal">
-    <div class="hero-bg" aria-hidden="true"></div>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg"></div>
 
     <div class="container">
       <h1>Más de 30 años comprometidos con la salud y el bienestar laboral, ofreciendo confianza, precisión y servicio humano a las empresas que construyen nuestro país.</h1>
@@ -222,7 +204,6 @@
     </div>
   </section>
 
-  <!-- MAIN CONTENT -->
   <main>
     <section id="nosotros">
       <h2>Nosotros</h2>
@@ -251,7 +232,6 @@
   </footer>
 
   <script>
-    // Ajusta dinámicamente el espaciador para evitar que el contenido quede tapado
     function actualizarEspaciador() {
       const topBar = document.querySelector('.top-bar');
       const navbar = document.querySelector('.navbar');
@@ -260,7 +240,6 @@
       const altura = topBar.getBoundingClientRect().height + navbar.getBoundingClientRect().height;
       spacer.style.height = altura + 'px';
     }
-
     window.addEventListener('load', actualizarEspaciador);
     window.addEventListener('resize', actualizarEspaciador);
     document.getElementById('siteLogo')?.addEventListener('load', actualizarEspaciador);
