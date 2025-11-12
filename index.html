@@ -1,145 +1,255 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LABCCO - Laboratorio Clínico</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LABCCO — Laboratorio Clínico</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* ---------- RESET & BASE ---------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height: 100%; }
     body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: #333;
+      font-family: 'Outfit', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      color: #10324a;
+      background: #fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height: 1.5;
     }
+    a { color: inherit; text-decoration: none; }
 
-    /* Franja superior (correo, teléfono, horario) */
+    /* ========== TOP BAR ========== */
     .top-bar {
-      background-color: #33ccff;
-      color: white;
-      font-weight: bold;
+      background: #33ccff;          /* tu color pedido */
+      color: #ffffff;
       display: flex;
       justify-content: center;
+      gap: 48px;
       align-items: center;
-      gap: 40px;
-      padding: 8px 0;
-      font-size: 15px;
-      text-transform: lowercase;
-    }
-
-    .top-bar a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    /* Barra de navegación */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 80px;
-      background-color: white;
-      position: sticky;
+      padding: 10px 16px;
+      position: fixed;
       top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      left: 0;
+      right: 0;
+      z-index: 1200;
+      font-weight: 700;
+      font-size: 15px;
     }
+    .top-bar a { color: #fff; display:inline-flex; gap:8px; align-items:center; }
+    .top-bar .horario { text-transform: lowercase; }
 
-    .navbar .brand img {
-      height: 160px;
-      transition: height 0.3s ease;
-    }
+    /* spacer para compensar top-bar fija (ajustable si cambias la altura) */
+    .spacer-top { height: 46px; }
 
-    .navbar ul {
-      list-style: none;
+    /* ========== NAVBAR ========== */
+    .navbar {
+      position: sticky;
+      top: 46px; /* justo debajo de top-bar */
+      background: #fff;
       display: flex;
-      margin: 0;
-      padding: 0;
-      gap: 40px;
-    }
-
-    .navbar ul li {
-      display: inline;
-    }
-
-    .navbar ul li a {
-      text-decoration: none;
-      color: #333;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
-
-    .navbar ul li a:hover {
-      color: #33ccff;
-    }
-
-    /* Banner */
-    .banner {
-      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-        url("https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1500&q=80")
-        no-repeat center center/cover;
-      height: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 48px;
+      box-shadow: 0 1px 6px rgba(16,50,74,0.06);
+      z-index: 1150;
+    }
+
+    /* Ajusta aquí el tamaño del logo si quieres probar (por defecto 180px) */
+    .brand img {
+      height: 180px; /* ← CAMBIAR AQUÍ: 160 | 180 | 200 etc. */
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-weight: 500; /* no negrita exagerada */
+      color: #10324a;
+      font-size: 16px;
+      padding: 6px 4px;
+    }
+    .nav-links a:hover { color: #0077cc; }
+
+    /* ========== HERO / BANNER (Pexels - opción 1) ========== */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 46px - 90px); /* resto pantalla menos top-bar y navbar aprox */
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      color: white;
+      color: #fff;
+      padding: 18px;
+      overflow: hidden;
     }
 
-    .banner h1 {
-      font-size: 48px;
-      margin: 0;
+    /* background image from Pexels + lighter overlay so image shows more */
+    .hero .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.pexels.com/photos/3825529/pexels-photo-3825529.jpeg');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+      /* no heavy dark filter — we want the image more visible */
     }
 
-    .banner p {
-      font-size: 20px;
-      margin: 20px 0;
-      max-width: 700px;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18)); /* menos opacidad */
+      z-index: 1;
     }
 
-    .banner a {
-      background-color: #33ccff;
-      color: white;
-      padding: 12px 30px;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      padding: 20px;
     }
 
-    .banner a:hover {
-      background-color: #00a3cc;
+    .hero h1 {
+      font-size: 34px;
+      line-height: 1.2;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-shadow: 0 8px 24px rgba(0,0,0,0.28);
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.96);
+      text-shadow: 0 6px 18px rgba(0,0,0,0.22);
+      margin-top: 8px;
+    }
+
+    .cta {
+      display:inline-block;
+      margin-top:18px;
+      background:#ffffff;
+      color:#004a99;
+      padding:10px 18px;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow: 0 8px 20px rgba(16,50,74,0.12);
+    }
+
+    /* ========== MAIN CONTENT ========== */
+    main { max-width: 1100px; margin: 40px auto; padding: 0 18px 60px; }
+
+    section { margin-bottom: 34px; }
+    h2 { color: #004a99; margin-bottom: 12px; }
+    p { color: #334b5b; }
+
+    /* contact map container */
+    .map-wrap { max-width:1100px; margin: 12px auto; border-radius:8px; overflow:hidden; }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background:#10324a;
+      color:#fff;
+      text-align:center;
+      padding:18px;
+      margin-top: 16px;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .top-bar { gap: 20px; font-size:14px; padding:8px 12px; }
+      .navbar { padding: 10px 18px; }
+      .brand img { height: 140px; }
+      .nav-links { gap: 16px; }
+      .hero h1 { font-size: 28px; }
+      .hero p { font-size: 16px; }
+    }
+
+    @media (max-width: 520px) {
+      .top-bar { flex-direction: column; gap: 8px; padding: 10px; font-size:13px; }
+      .brand img { height: 110px; }
+      .nav-links { flex-wrap: wrap; justify-content:center; gap:10px; }
+      .hero { min-height: calc(65vh - 46px); }
+      .hero h1 { font-size: 20px; }
+      .hero p { font-size: 14px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Franja superior -->
-  <div class="top-bar">
-    <span>📧 <a href="mailto:calidad@labccosas.com">calidad@labccosas.com</a></span>
-    <span>📞 <a href="https://wa.me/573128274796" target="_blank">312 827 4796</a></span>
-    <span>🕐 lun - vie 7am a 12m / 2pm a 5pm | sábados 8am a 11am</span>
+  <!-- TOP BAR -->
+  <div class="top-bar" role="region" aria-label="Información de contacto">
+    <a href="mailto:calidad@labccosas.com">✉ calidad@labccosas.com</a>
+    <a href="https://wa.me/573128274796" target="_blank" rel="noopener">📱 312 827 4796</a>
+    <span class="horario">🕒 lun - vie 7am - 12m / 2pm - 5pm | sáb 8am - 11am</span>
   </div>
 
-  <!-- Barra de navegación -->
-  <nav class="navbar">
-    <div class="brand">
-      <img src="LABCCO-Photoroom.png" alt="Logo LABCCO">
-    </div>
-    <ul>
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
+  <!-- spacer para compensar top-bar fija -->
+  <div class="spacer-top" aria-hidden="true"></div>
 
-  <!-- Banner principal -->
-  <section class="banner">
-    <h1>Laboratorio Clínico LABCCO</h1>
-    <p>Más de 30 años comprometidos con la calidad y brindando soluciones integrales en salud a empresas y personas.</p>
-    <a href="#contacto">Contáctanos</a>
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner" aria-label="Barra de navegación principal">
+    <div class="brand">
+      <img src="LABCCO-Photoroom.png" alt="Logo LABCCO" id="siteLogo"/>
+    </div>
+
+    <nav class="nav-links" role="navigation" aria-label="Enlaces principales">
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- HERO / BANNER -->
+  <section class="hero" id="inicio" role="region" aria-label="Sección principal">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="container">
+      <h1>Más de 30 años comprometidos con la salud y el bienestar laboral, ofreciendo confianza, precisión y servicio humano a las empresas que construyen nuestro país.</h1>
+      <p>Laboratorio clínico y servicios de salud ocupacional — resultados confiables para su empresa.</p>
+      <a class="cta" href="#contacto">Contáctanos</a>
+    </div>
   </section>
 
+  <!-- MAIN CONTENT -->
+  <main>
+    <section id="nosotros">
+      <h2>Nosotros</h2>
+      <p>LABCCO cuenta con amplia trayectoria en diagnóstico clínico y salud ocupacional. Brindamos soluciones técnicas y atención especializada a empresas del Oriente Antioqueño, con énfasis en calidad y cumplimiento normativo.</p>
+    </section>
+
+    <section id="servicios">
+      <h2>Servicios</h2>
+      <p>Hematología, química clínica, serología, colinesterasa eritrocitaria, optometría, audiometría, exámenes ocupacionales y soluciones integrales B2B.</p>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>📍 Carrera 48 #52-54, Edificio Santa Bárbara, Rionegro, Antioquia<br>
+      📞 <a href="https://wa.me/573128274796" target="_blank" rel="noopener">312 827 4796</a><br>
+      ✉ <a href="mailto:calidad@labccosas.com">calidad@labccosas.com</a></p>
+
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps?q=Carrera+48+%2352-54+Rionegro+Antioquia&output=embed" width="100%" height="360" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 LABCCO — Laboratorio Clínico Colombia Oriente
+  </footer>
+
+  <!-- Optional small script to quickly test changing logo height from console -->
+  <script>
+    // Puedes ejecutar en la consola de tu navegador para probar:
+    // document.querySelector('.brand img').style.height = '200px';
+  </script>
 </body>
 </html>
