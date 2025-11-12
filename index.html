@@ -1,178 +1,220 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laboratorio Clínico LABCCO</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LABCCO | Laboratorio Clínico</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2e0ad6a5f.js" crossorigin="anonymous"></script>
   <style>
-    /* ==== ESTILOS GENERALES ==== */
     body {
       margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
+      font-family: 'Outfit', sans-serif;
       background-color: #ffffff;
       color: #003366;
     }
 
-    /* ==== MENÚ FIJO ==== */
-    nav {
+    /* 🔹 Franja superior (contacto y horarios) */
+    .top-bar {
+      background-color: #003366;
+      color: #ffffff;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 8px 0;
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: #004080;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 15px 0;
       z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
 
-    nav a {
-      color: white;
+    .top-bar a {
+      color: #ffffff;
       text-decoration: none;
-      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .top-bar i {
+      font-size: 16px;
+    }
+
+    /* 🔹 Barra de navegación principal */
+    nav {
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 60px;
+      box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 36px; /* debajo de la top-bar */
+      z-index: 999;
+    }
+
+    nav img {
+      height: 60px;
+      transition: transform 0.3s ease;
+    }
+
+    nav img:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #003366;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
       transition: color 0.3s;
     }
 
-    nav a:hover {
-      color: #99ccff;
+    .nav-links a:hover {
+      color: #007bff;
     }
 
-    /* ==== ENCABEZADO CON ANIMACIÓN ==== */
+    /* 🔹 Banner principal (con imagen de fondo) */
     header {
+      height: 85vh;
+      background-image: linear-gradient(rgba(0, 51, 102, 0.6), rgba(0, 51, 102, 0.6)),
+        url('https://images.pexels.com/photos/3825529/pexels-photo-3825529.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
       color: white;
-      padding-top: 140px;
-      padding-bottom: 80px;
-      min-height: 80vh;
-      background: linear-gradient(-45deg, #004080, #0059b3, #0073e6, #3399ff);
-      background-size: 400% 400%;
-      animation: moverFondo 12s ease infinite;
+      padding: 0 20px;
     }
 
-    @keyframes moverFondo {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    header h1 {
+      font-size: 28px;
+      max-width: 900px;
+      line-height: 1.4;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      animation: fadeIn 2s ease-in;
     }
 
-    .logo {
-      width: 320px;
-      max-width: 85%;
-      margin-bottom: 10px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .slogan {
-      font-size: 1.3em;
-      font-weight: 500;
-      margin-top: 10px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.5;
-      color: #e6f0ff;
-    }
-
-    /* ==== SECCIONES ==== */
+    /* 🔹 Secciones generales */
     section {
       padding: 60px 20px;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
     h2 {
-      color: #004080;
-      border-bottom: 2px solid #99ccff;
+      color: #003366;
+      border-bottom: 2px solid #003366;
       display: inline-block;
       padding-bottom: 5px;
+      margin-bottom: 20px;
     }
 
+    p {
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* 🔹 Mapa */
     iframe {
-      border: 0;
       width: 100%;
       height: 350px;
-      border-radius: 8px;
+      border: none;
+      border-radius: 10px;
     }
 
+    /* 🔹 Footer */
     footer {
-      background-color: #004080;
+      background-color: #003366;
       color: white;
       text-align: center;
-      padding: 20px 10px;
-      font-size: 0.9em;
+      padding: 15px;
     }
 
-    /* ==== RESPONSIVO ==== */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       nav {
         flex-direction: column;
-        gap: 10px;
+        padding: 10px 20px;
       }
-      .slogan {
-        font-size: 1em;
-        padding: 0 10px;
-      }
-      .logo {
-        width: 250px;
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
       }
     }
   </style>
 </head>
+
 <body>
-  <!-- ==== MENÚ SUPERIOR ==== -->
+  <!-- 🔹 Franja superior -->
+  <div class="top-bar">
+    <a href="https://wa.me/573128274796" target="_blank">
+      <i class="fab fa-whatsapp"></i> 312 827 4796
+    </a>
+    <a href="mailto:calidad@labccosas.com">
+      <i class="fas fa-envelope"></i> calidad@labccosas.com
+    </a>
+    <span><i class="far fa-clock"></i> LUN - VIE: 7AM–12M / 2PM–5PM | SÁB: 8AM–11AM</span>
+  </div>
+
+  <!-- 🔹 Menú -->
   <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#nosotros">Nosotros</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#contacto">Contacto</a>
+    <img src="LABCCO-Photoroom.png" alt="Logo LABCCO" />
+    <div class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </div>
   </nav>
 
-  <!-- ==== ENCABEZADO ==== -->
+  <!-- 🔹 Banner con imagen -->
   <header id="inicio">
-    <img src="LABCCO-Photoroom.png" alt="Logo LABCCO" class="logo">
-    <p class="slogan">
-      Tres décadas comprometidos con la salud y el bienestar laboral, ofreciendo confianza,
-      precisión y servicio humano a las empresas que construyen nuestro país.
-    </p>
+    <h1>Más de 30 años comprometidos con la salud y el bienestar laboral, ofreciendo confianza, precisión y servicio humano a las empresas que construyen nuestro país.</h1>
   </header>
 
-  <!-- ==== NOSOTROS ==== -->
+  <!-- 🔹 Sección Nosotros -->
   <section id="nosotros">
     <h2>Nosotros</h2>
-    <p>
-      En LABCCO contamos con más de 30 años de experiencia brindando servicios de laboratorio clínico 
-      y apoyo diagnóstico a empresas del Oriente Antioqueño. 
-      Nuestro compromiso con la calidad, la ética y la ciencia nos ha posicionado como un aliado confiable 
-      en programas de salud ocupacional y bienestar laboral.
-    </p>
+    <p>LABCCO es un laboratorio clínico con más de tres décadas de experiencia, especializado en servicios para empresas del Oriente Antioqueño. Ofrecemos análisis confiables, personal calificado y un compromiso constante con la calidad, la ciencia y la salud.</p>
   </section>
 
-  <!-- ==== SERVICIOS ==== -->
+  <!-- 🔹 Sección Servicios -->
   <section id="servicios">
     <h2>Servicios</h2>
-    <p>
-      Ofrecemos una amplia gama de servicios clínicos y diagnósticos especializados en salud ocupacional, 
-      incluyendo exámenes de laboratorio, pruebas de audiometría, visiometría, optometría y 
-      evaluaciones médicas integrales.  
-      Contamos con tecnología moderna, personal altamente calificado y resultados confiables.
-    </p>
+    <p>Realizamos exámenes de laboratorio clínico, pruebas ocupacionales, optometría, visiometría, audiometría y valoración médica. Nos especializamos en salud empresarial y atención personalizada tanto a empresas como a particulares.</p>
   </section>
 
-  <!-- ==== CONTACTO ==== -->
+  <!-- 🔹 Sección Contacto -->
   <section id="contacto">
-    <h2>Contacto</h2>
-    <p>
-      📍 Carrera 48 #52-54, Edificio Santa Bárbara, Rionegro, Antioquia  
-      📞 Teléfono: +57 604 555 1234  
-      ✉️ Correo: contacto@labcco.com.co
-    </p>
-    <iframe 
-      src="https://www.google.com/maps?q=Carrera+48+%2352-54,+Rionegro,+Antioquia,+Colombia&output=embed">
-    </iframe>
+    <h2>Contáctanos</h2>
+    <p>📍 Carrera 48 #52-54, Edificio Santa Bárbara, Rionegro, Antioquia<br>
+    📞 <a href="https://wa.me/573128274796" target="_blank">312 827 4796</a><br>
+    ✉️ <a href="mailto:calidad@labccosas.com">calidad@labccosas.com</a></p>
+
+    <iframe src="https://www.google.com/maps?q=Carrera%2048%20%2352-54%20Rionegro%20Antioquia&output=embed"></iframe>
   </section>
 
+  <!-- 🔹 Footer -->
   <footer>
-    © 2025 Laboratorio Clínico LABCCO — Todos los derechos reservados.
+    © 2025 LABCCO | Laboratorio Clínico Colombia Oriente
   </footer>
 </body>
 </html>
