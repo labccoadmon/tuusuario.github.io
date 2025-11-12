@@ -4,27 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LABCCO - Laboratorio Clínico</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* ======== RESET ======== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
       color: #333;
       scroll-behavior: smooth;
     }
 
-    /* ======== FRANJA SUPERIOR ======== */
+    /* ===== FRANJA SUPERIOR ===== */
     .top-bar {
-      background-color: #4fa3e3; /* Azul claro como el del logo */
+      background-color: #4fa3e3; /* Azul más claro */
       color: white;
       text-align: center;
-      font-size: 16px;
-      padding: 8px 0;
+      font-weight: bold;
+      font-size: 17px;
+      padding: 10px 0;
       display: flex;
       justify-content: center;
-      gap: 40px;
+      gap: 45px;
       align-items: center;
       flex-wrap: wrap;
     }
@@ -35,37 +34,39 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      font-weight: bold;
     }
 
-    /* ======== NAVBAR ======== */
+    /* ===== NAVBAR ===== */
     .navbar {
       background-color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 50px;
+      padding: 10px 60px;
       position: sticky;
       top: 0;
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      height: 90px; /* Más gruesa */
+      height: 110px; /* más gruesa */
     }
 
     .navbar img {
-      height: 70px; /* Logo más grande */
+      height: 110px; /* logo más grande */
       width: auto;
     }
 
     .navbar ul {
       list-style: none;
       display: flex;
-      gap: 30px;
+      gap: 35px;
       font-size: 18px;
     }
 
     .navbar ul li a {
       text-decoration: none;
       color: #222;
+      font-weight: normal; /* sin negrilla */
       transition: color 0.3s;
     }
 
@@ -73,11 +74,11 @@
       color: #0078d7;
     }
 
-    /* ======== HERO / BANNER ======== */
+    /* ===== HERO / BANNER ===== */
     .hero {
       height: 90vh;
-      background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
-                  url('https://images.unsplash.com/photo-1588776814546-ec2b6e05f5f1?auto=format&fit=crop&w=1600&q=80');
+      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url('https://images.unsplash.com/photo-1583912268181-3b2c427aeb6d?auto=format&fit=crop&w=1600&q=80');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -105,11 +106,11 @@
 </head>
 <body>
 
-  <!-- Franja superior con información -->
+  <!-- Franja superior -->
   <div class="top-bar">
     <a href="mailto:calidad@labccosas.com">📧 calidad@labccosas.com</a>
     <a href="https://wa.me/573128274796" target="_blank">📱 312 827 4796</a>
-    <span>🕓 Lun-Vie 7AM-12M / 2PM-5PM | Sáb 8AM-11AM</span>
+    <span>🕓 Lun–Vie 7AM–12M / 2PM–5PM | Sáb 8AM–11AM</span>
   </div>
 
   <!-- Barra de navegación -->
@@ -123,7 +124,7 @@
     </ul>
   </nav>
 
-  <!-- Banner principal -->
+  <!-- Banner -->
   <section class="hero" id="inicio">
     <h1>Más de 30 años comprometidos con la calidad y con brindar soluciones integrales a las empresas y sus trabajadores</h1>
     <p>Laboratorio Clínico LABCCO – Confianza, ciencia y servicio humano</p>
