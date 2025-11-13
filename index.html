@@ -36,7 +36,7 @@
     }
     .top-bar a { color: #fff; display:inline-flex; gap:8px; align-items:center; }
     .top-bar .horario { text-transform: lowercase; }
-    .spacer-top { height: 46px; }
+    .spacer-top { height: 46px; } /* se mantiene para la sticky navbar (top:46px) */
 
     /* ========== NAVBAR ========== */
     .navbar {
@@ -47,24 +47,47 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      padding: 10px 40px;
+      padding: 6px 40px; /* reducida para compactar la franja blanca */
       box-shadow: 0 1px 6px rgba(16,50,74,0.06);
       z-index: 1350;
     }
 
     .brand { display:flex; align-items:center; gap: 16px; }
+    .logo-wrap {
+      position: relative;
+      display: inline-block;
+      line-height: 1;
+    }
+
     .brand img {
-      height: 100px; /* tamaño ajustado */
+      height: 70px; /* reducido de 100px a 70px */
       width: auto;
       display: block;
       max-width: 100%;
     }
 
+    /* distintivo +30 años */
+    .badge-30 {
+      position: absolute;
+      top: 4px;
+      right: 2px;
+      background: #0077cc;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 7px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      white-space: nowrap;
+      transform: translate(12%, -8%); /* pequeño ajuste fino */
+    }
+
     .nav-links {
       display: flex;
-      gap: 28px;
+      gap: 32px; /* un poco más espacio entre enlaces */
       align-items: center;
       justify-content: center;
+      margin-right: 40px; /* empuja la lista ligeramente hacia el centro visual */
     }
 
     .nav-links a {
@@ -155,15 +178,18 @@
     }
 
     @media (max-width: 900px) {
-      .brand img { height: 80px; }
-      .nav-links { gap: 16px; }
+      .brand img { height: 60px; }
+      .nav-links { gap: 16px; margin-right: 0; }
       .hero h1 { font-size: 28px; }
+      .badge-30 { top: 6px; right: 2px; font-size: 10px; padding: 2px 6px; }
     }
     @media (max-width: 520px) {
       .top-bar { flex-direction: column; gap: 8px; font-size:13px; padding:10px; }
-      .navbar { flex-direction: column; padding: 12px; }
-      .brand img { height: 70px; margin-bottom: 8px; }
-      .nav-links { justify-content: center; flex-wrap: wrap; gap: 12px; }
+      .navbar { flex-direction: column; padding: 10px 16px; align-items: center; gap: 8px; }
+      .brand img { height: 54px; margin-bottom: 0; }
+      .logo-wrap { margin-bottom: 6px; }
+      .nav-links { justify-content: center; flex-wrap: wrap; gap: 12px; margin-right: 0; }
+      .badge-30 { top: 4px; right: -2px; transform: none; }
     }
   </style>
 </head>
@@ -180,10 +206,13 @@
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="brand">
-      <img src="LABCCO-Photoroom.png" alt="Logo LABCCO" id="siteLogo" />
+      <div class="logo-wrap" aria-hidden="false" aria-label="Logo LABCCO">
+        <img src="LABCCO-Photoroom.png" alt="Logo LABCCO" id="siteLogo" />
+        <div class="badge-30" aria-hidden="true">+30 años</div>
+      </div>
     </div>
 
-    <nav class="nav-links">
+    <nav class="nav-links" role="navigation" aria-label="Menú principal">
       <a href="#inicio">Inicio</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#servicios">Servicios</a>
