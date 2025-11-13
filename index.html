@@ -37,11 +37,11 @@
     .top-bar a { color: #fff; display:inline-flex; gap:8px; align-items:center; }
     .top-bar .horario { text-transform: lowercase; }
 
-    /* spacer-top sólo para el offset inicial del top-bar */
+    /* spacer-top mantiene el espacio inicial para la top-bar */
     .spacer-top { height: 46px; }
 
     /* ========== NAVBAR ========== */
-    /* Ajusta la altura del navbar exactamente al alto del logo (64px) */
+    /* altura calculada para mantener la franja justa pero dejar espacio al distintivo */
     .navbar {
       position: sticky;
       top: 46px; /* coincide con la altura fija de la top-bar */
@@ -50,50 +50,44 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      padding: 0 40px; /* sin padding vertical para mantener la altura exacta */
-      height: 64px; /* altura fija = altura del logo */
+      padding: 0 36px; /* sin padding vertical para mantener la altura exacta */
+      height: 68px; /* ligera ampliación para que el distintivo no quede apretado */
       box-shadow: 0 1px 6px rgba(16,50,74,0.06);
       z-index: 1350;
     }
 
     .brand { display:flex; align-items:center; gap: 12px; }
 
-    /* wrapper relativo para poder posicionar el distintivo sin tapar el logo */
+    /* wrapper relativo para posicionar distintivo (PNG) junto al logo */
     .logo-wrap {
       position: relative;
       display: inline-block;
       line-height: 1;
-      padding-right: 8px; /* espacio derecho para que el badge no "chocque" con el nav */
+      padding-right: 10px; /* espacio para que el distintivo no choque visualmente con nav */
     }
 
-    /* tamaño del logo: coincide con la altura del navbar (64px) */
-    .brand img {
+    /* tamaño del logo: lo vinculamos a la altura del navbar menos un pequeño margen */
+    .brand img#siteLogo {
       height: 64px;
       width: auto;
       display: block;
       max-width: 100%;
     }
 
-    /* ========== BADGE CIRCULAR +30 AÑOS (estilo distintivo) ========== */
-    .badge-30 {
+    /* ========== DISTINTIVO COMO PNG ========== */
+    .badge-img {
       position: absolute;
-      top: -8px;
-      right: -8px; /* posición ligeramente fuera del logo para que no lo cubra */
-      width: 28px;
-      height: 28px;
+      top: -6px;       /* ligeramente fuera del límite superior del logo (no lo tapa) */
+      right: -12px;    /* a la derecha del logo, separándolo del texto del nav */
+      width: 36px;     /* tamaño "un poco grandesito" */
+      height: 36px;
+      object-fit: contain;
       border-radius: 50%;
-      background: #ffcc00; /* color distintivo tipo medalla; cambiar si prefieres otro */
-      color: #10324a;
-      font-size: 11px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #fff; /* borde blanco para separación visual con el logo */
-      box-shadow: 0 4px 10px rgba(16,50,74,0.12);
-      transform: none;
-      white-space: nowrap;
-      line-height: 1;
+      border: 2px solid #ffffff; /* separación blanca entre logo y distintivo */
+      box-shadow: 0 6px 14px rgba(16,50,74,0.14);
+      background: transparent;
+      display: block;
+      pointer-events: none; /* que no capture clicks */
     }
 
     .nav-links {
@@ -115,7 +109,7 @@
     /* ========== HERO / BANNER ========== */
     .hero {
       position: relative;
-      min-height: 60vh;
+      min-height: 70vh; /* agrandé el banner (antes 60vh) para que ocupe más espacio visual */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -176,7 +170,7 @@
     }
 
     /* ========== MAIN CONTENT ========== */
-    main { max-width: 1100px; margin: 40px auto; padding: 0 18px 60px; }
+    main { max-width: 1100px; margin: 36px auto; padding: 0 18px 60px; }
     section { margin-bottom: 34px; }
     h2 { color: #004a99; margin-bottom: 12px; }
     p { color: #334b5b; }
@@ -193,20 +187,20 @@
 
     /* ========== RESPONSIVE ========== */
     @media (max-width: 900px) {
-      .brand img { height: 56px; }
-      .navbar { height: 56px; }
+      .brand img#siteLogo { height: 56px; }
+      .navbar { height: 60px; }
       .nav-links { gap: 18px; margin-right: 16px; }
       .hero h1 { font-size: 28px; }
-      .badge-30 { width: 24px; height: 24px; top: -6px; right: -6px; font-size: 10px; border-width: 2px; }
+      .badge-img { width: 30px; height: 30px; top: -4px; right: -10px; }
       .spacer-top { height: 46px; }
     }
     @media (max-width: 520px) {
       .top-bar { flex-direction: column; gap: 8px; font-size:13px; padding:10px; }
       .navbar { flex-direction: column; padding: 8px 16px; height: auto; align-items: center; gap: 8px; }
-      .brand img { height: 54px; }
+      .brand img#siteLogo { height: 54px; }
       .logo-wrap { margin-bottom: 4px; padding-right: 0; }
       .nav-links { justify-content: center; flex-wrap: wrap; gap: 12px; margin-right: 0; }
-      .badge-30 { position: absolute; top: -6px; right: -6px; width: 22px; height: 22px; font-size: 9px; border-width: 2px; }
+      .badge-img { position: absolute; top: -6px; right: -6px; width: 26px; height: 26px; }
       .spacer-top { height: 46px; }
     }
   </style>
@@ -226,7 +220,8 @@
     <div class="brand">
       <div class="logo-wrap" aria-hidden="false" aria-label="Logo LABCCO">
         <img src="LABCCO-Photoroom.png" alt="Logo LABCCO" id="siteLogo" />
-        <div class="badge-30" aria-hidden="true" title="+30 años">+30</div>
+        <!-- Aquí carga tu PNG (asegúrate que esté en img/distintivo30.png) -->
+        <img src="img/distintivo30.png" alt="+30 años distintivo" class="badge-img" />
       </div>
     </div>
 
@@ -242,7 +237,7 @@
 
   <!-- HERO -->
   <section class="hero" id="inicio">
-    <div class="hero-bg"></div>
+    <div class="hero-bg" aria-hidden="true"></div>
 
     <div class="container">
       <h1>Más de 30 años comprometidos con la salud y el bienestar laboral, ofreciendo confianza, precisión y servicio humano a las empresas que construyen nuestro país.</h1>
@@ -279,15 +274,29 @@
   </footer>
 
   <script>
-    /* ajusta el espaciador dinámicamente según las alturas reales del top-bar y navbar */
+    /* 
+      ajusta el espaciador dinámicamente según las alturas reales del top-bar y navbar,
+      y resta un pequeño offsetPull para eliminar la franja blanca vacía que comentaste.
+      Si quieres que la franja sea aún más justa, disminuye offsetPull (ej: 10).
+      Si prefieres más separación, aumenta offsetPull (ej: -2 ó 0).
+    */
     function actualizarEspaciador() {
       const topBar = document.querySelector('.top-bar');
       const navbar = document.querySelector('.navbar');
       const spacer = document.getElementById('spacer-dynamic');
       if (!topBar || !navbar || !spacer) return;
-      const altura = topBar.getBoundingClientRect().height + navbar.getBoundingClientRect().height;
-      spacer.style.height = altura + 'px';
+
+      // Altura real medida
+      const alturaTop = topBar.getBoundingClientRect().height;
+      const alturaNav = navbar.getBoundingClientRect().height;
+      // offsetPull = cuantos pixeles restamos al espaciador (positivo => reduce el espaciador)
+      const offsetPull = 6; // <-- puedes ajustar este valor si deseas mayor/menor "tirón" del banner hacia arriba
+
+      let altura = alturaTop + alturaNav - offsetPull;
+      if (altura < 0) altura = 0;
+      spacer.style.height = Math.round(altura) + 'px';
     }
+
     window.addEventListener('load', actualizarEspaciador);
     window.addEventListener('resize', actualizarEspaciador);
     document.getElementById('siteLogo')?.addEventListener('load', actualizarEspaciador);
