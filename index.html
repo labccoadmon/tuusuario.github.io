@@ -17,7 +17,7 @@
     }
     a { color: inherit; text-decoration: none; }
 
-    /* ========== TOP BAR ========== */
+    /* === TOP BAR === */
     .top-bar {
       background: #33ccff;
       color: #ffffff;
@@ -37,36 +37,30 @@
     .top-bar a { color: #fff; display:inline-flex; gap:8px; align-items:center; }
     .top-bar .horario { text-transform: lowercase; }
 
-    /* spacer-top mantiene el espacio inicial para la top-bar */
     .spacer-top { height: 46px; }
 
-    /* ========== NAVBAR ========== */
-    /* altura calculada para mantener la franja justa pero dejar espacio al distintivo */
+    /* === NAVBAR === */
     .navbar {
       position: sticky;
-      top: 46px; /* coincide con la altura fija de la top-bar */
+      top: 46px;
       background: #fff;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      padding: 0 36px; /* sin padding vertical para mantener la altura exacta */
-      height: 68px; /* ligera ampliación para que el distintivo no quede apretado */
+      padding: 0 36px;
+      height: 68px;
       box-shadow: 0 1px 6px rgba(16,50,74,0.06);
       z-index: 1350;
     }
 
-    .brand { display:flex; align-items:center; gap: 12px; }
-
-    /* wrapper relativo para posicionar distintivo (PNG) junto al logo */
-    .logo-wrap {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       position: relative;
-      display: inline-block;
-      line-height: 1;
-      padding-right: 10px; /* espacio para que el distintivo no choque visualmente con nav */
     }
 
-    /* tamaño del logo: lo vinculamos a la altura del navbar menos un pequeño margen */
     .brand img#siteLogo {
       height: 64px;
       width: auto;
@@ -74,20 +68,12 @@
       max-width: 100%;
     }
 
-    /* ========== DISTINTIVO COMO PNG ========== */
-    .badge-img {
-      position: absolute;
-      top: -6px;       /* ligeramente fuera del límite superior del logo (no lo tapa) */
-      right: -12px;    /* a la derecha del logo, separándolo del texto del nav */
-      width: 36px;     /* tamaño "un poco grandesito" */
-      height: 36px;
-      object-fit: contain;
-      border-radius: 50%;
-      border: 2px solid #ffffff; /* separación blanca entre logo y distintivo */
-      box-shadow: 0 6px 14px rgba(16,50,74,0.14);
-      background: transparent;
+    /* === DISTINTIVO PNG === */
+    .brand img#distintivo {
+      height: 58px;       /* un poco más pequeño que el logo principal */
+      width: auto;
       display: block;
-      pointer-events: none; /* que no capture clicks */
+      margin-left: 8px;   /* separación visual entre logo y distintivo */
     }
 
     .nav-links {
@@ -95,7 +81,7 @@
       gap: 32px;
       align-items: center;
       justify-content: center;
-      margin-right: 40px; /* empuja ligeramente hacia el centro visual */
+      margin-right: 40px;
     }
 
     .nav-links a {
@@ -104,12 +90,13 @@
       font-size: 18px;
       padding: 6px 4px;
     }
+
     .nav-links a:hover { color: #0077cc; }
 
-    /* ========== HERO / BANNER ========== */
+    /* === HERO / BANNER === */
     .hero {
       position: relative;
-      min-height: 70vh; /* agrandé el banner (antes 60vh) para que ocupe más espacio visual */
+      min-height: 80vh; /* aumentamos altura visible del banner */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -169,7 +156,7 @@
       box-shadow: 0 8px 20px rgba(16,50,74,0.12);
     }
 
-    /* ========== MAIN CONTENT ========== */
+    /* === MAIN CONTENT === */
     main { max-width: 1100px; margin: 36px auto; padding: 0 18px 60px; }
     section { margin-bottom: 34px; }
     h2 { color: #004a99; margin-bottom: 12px; }
@@ -185,23 +172,22 @@
       margin-top: 16px;
     }
 
-    /* ========== RESPONSIVE ========== */
+    /* === RESPONSIVE === */
     @media (max-width: 900px) {
       .brand img#siteLogo { height: 56px; }
+      .brand img#distintivo { height: 50px; }
       .navbar { height: 60px; }
       .nav-links { gap: 18px; margin-right: 16px; }
       .hero h1 { font-size: 28px; }
-      .badge-img { width: 30px; height: 30px; top: -4px; right: -10px; }
-      .spacer-top { height: 46px; }
     }
+
     @media (max-width: 520px) {
       .top-bar { flex-direction: column; gap: 8px; font-size:13px; padding:10px; }
       .navbar { flex-direction: column; padding: 8px 16px; height: auto; align-items: center; gap: 8px; }
+      .brand { flex-direction: column; }
       .brand img#siteLogo { height: 54px; }
-      .logo-wrap { margin-bottom: 4px; padding-right: 0; }
+      .brand img#distintivo { height: 44px; margin-left: 0; margin-top: 6px; }
       .nav-links { justify-content: center; flex-wrap: wrap; gap: 12px; margin-right: 0; }
-      .badge-img { position: absolute; top: -6px; right: -6px; width: 26px; height: 26px; }
-      .spacer-top { height: 46px; }
     }
   </style>
 </head>
@@ -218,11 +204,8 @@
   <!-- NAVBAR -->
   <header class="navbar" role="banner">
     <div class="brand">
-      <div class="logo-wrap" aria-hidden="false" aria-label="Logo LABCCO">
-        <img src="LABCCO-Photoroom.png" alt="Logo LABCCO" id="siteLogo" />
-        <!-- Aquí carga tu PNG (asegúrate que esté en img/distintivo30.png) -->
-        <img src="img/distintivo30.png" alt="+30 años distintivo" class="badge-img" />
-      </div>
+      <img src="LABCCO-Photoroom.png" alt="Logo LABCCO" id="siteLogo" />
+      <img src="distintivo30.png" alt="Distintivo +30 años" id="distintivo" />
     </div>
 
     <nav class="nav-links" role="navigation" aria-label="Menú principal">
@@ -274,23 +257,18 @@
   </footer>
 
   <script>
-    /* 
-      ajusta el espaciador dinámicamente según las alturas reales del top-bar y navbar,
-      y resta un pequeño offsetPull para eliminar la franja blanca vacía que comentaste.
-      Si quieres que la franja sea aún más justa, disminuye offsetPull (ej: 10).
-      Si prefieres más separación, aumenta offsetPull (ej: -2 ó 0).
-    */
+    // Ajuste dinámico del espaciador: eliminamos la franja blanca superior del banner
     function actualizarEspaciador() {
       const topBar = document.querySelector('.top-bar');
       const navbar = document.querySelector('.navbar');
       const spacer = document.getElementById('spacer-dynamic');
       if (!topBar || !navbar || !spacer) return;
 
-      // Altura real medida
       const alturaTop = topBar.getBoundingClientRect().height;
       const alturaNav = navbar.getBoundingClientRect().height;
-      // offsetPull = cuantos pixeles restamos al espaciador (positivo => reduce el espaciador)
-      const offsetPull = 6; // <-- puedes ajustar este valor si deseas mayor/menor "tirón" del banner hacia arriba
+
+      // offsetPull fuerte para compensar ~4cm en pantalla (~80px en promedio)
+      const offsetPull = 80;
 
       let altura = alturaTop + alturaNav - offsetPull;
       if (altura < 0) altura = 0;
