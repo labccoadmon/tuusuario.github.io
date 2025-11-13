@@ -139,9 +139,9 @@
       align-items: center;
     }
 
-    /* ======= NUEVO ESTILO: texto azul sobre fondo blanco semitransparente ======= */
+    /* ======= TEXTO AZUL sobre caja blanca semitransparente (ahora más transparente) ======= */
     .hero .text-box {
-      background: rgba(255,255,255,0.75); /* fondo blanco semitransparente */
+      background: rgba(255,255,255,0.55); /* ajustado: más transparente */
       padding: 14px 20px;
       border-radius: 10px;
       box-shadow: 0 8px 20px rgba(16,50,74,0.08);
@@ -242,13 +242,13 @@
 
   <!-- HERO con slider -->
   <section class="hero" id="inicio">
-    <!-- slides (usa las 3 imágenes acordadas) -->
+    <!-- slides (dos originales + la nueva de muestras de sangre) -->
     <div class="hero-slide active" style="background-image: url('https://images.pexels.com/photos/3825529/pexels-photo-3825529.jpeg');" aria-hidden="false"></div>
     <div class="hero-slide" style="background-image: url('https://images.pexels.com/photos/8442110/pexels-photo-8442110.jpeg');" aria-hidden="true"></div>
-    <div class="hero-slide" style="background-image: url('https://images.pexels.com/photos/8442105/pexels-photo-8442105.jpeg');" aria-hidden="true"></div>
+    <div class="hero-slide" style="background-image: url('https://images.pexels.com/photos/9574325/pexels-photo-9574325.jpeg');" aria-hidden="true"></div>
 
     <div class="container">
-      <!-- Caja blanca semitransparente con texto azul -->
+      <!-- Caja blanca semitransparente (ahora 0.55 opacidad) con texto azul -->
       <div class="text-box" role="heading" aria-level="1">
         <h1>Más de 30 años comprometidos con el bienestar laboral, ofreciendo confianza y servicio humano a las empresas que construyen nuestro país.</h1>
         <p>Laboratorio clínico y servicios de salud ocupacional — resultados confiables para su empresa.</p>
@@ -289,7 +289,6 @@
   <script>
     /* 1) Espaciador dinámico para compensar top-bar + navbar (evita franja blanca)
        Ajusta offsetPull si quieres "tirar" más del banner hacia arriba.
-       offsetPull positivo reduce el espaciador.
     */
     function actualizarEspaciador() {
       const topBar = document.querySelector('.top-bar');
