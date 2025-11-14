@@ -121,8 +121,8 @@
       display:flex;
       flex-direction: column;
       align-items: center;
-      margin: 0 auto; /* centrado */
-      text-align: center; /* aseguramos texto centrado */
+      margin: 0 auto;
+      text-align: center;
     }
 
     .hero .text-box {
@@ -156,9 +156,9 @@
       text-align: center;
     }
 
-    /* Texto secundario: negrilla, más grande, azul vibrante y centrado */
+    /* Texto secundario: azul oscuro original #003366, negrilla, más grande */
     .commitment {
-      color: #3a90ee;
+      color: #003366;
       font-size: 22px;
       font-weight: 700;
       line-height: 1.6;
@@ -169,17 +169,14 @@
       text-align: center;
     }
 
-    /* Texto final con mismo color y formato que el texto secundario */
+    /* Texto final: azul oscuro #003366, tamaño y formato original */
     .final-text {
-      color: #3a90ee;
-      font-size: 22px;
-      font-weight: 700;
+      color: #003366;
+      font-size: 15px;
+      font-weight: 500;
       margin-bottom: 22px;
       letter-spacing: 0.5px;
       text-align: center;
-      max-width: 980px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .cta {
@@ -225,7 +222,7 @@
       .commitment { font-size: 20px; }
       .nav-links { gap: 18px; transform: translateX(-12px); }
       .hero .micro-title { font-size: 12px; }
-      .final-text { font-size: 20px; }
+      .final-text { font-size: 15px; }
     }
     @media (max-width: 520px) {
       .top-bar { flex-direction: column; gap: 8px; font-size:13px; padding:10px; text-align:center; }
@@ -238,7 +235,7 @@
       .hero .text-box { padding: 12px 14px; width: 95%; }
       .hero h1 { font-size: 22px; }
       .commitment { font-size: 18px; line-height:1.5; }
-      .final-text { font-size: 18px; margin-bottom: 16px; }
+      .final-text { font-size: 15px; margin-bottom: 16px; }
       .cta { padding: 10px 16px; font-size: 14px; }
     }
   </style>
@@ -284,17 +281,17 @@
         <!-- Restaurada: micro-title superior -->
         <div class="micro-title">IPS LABORATORIO CLÍNICO COLOMBIANO DE ORIENTE S.A.S</div>
 
-        <!-- Texto principal cambiado a azul claro y centrado -->
+        <!-- Texto principal azul claro -->
         <h1>Más de 30 años creciendo junto a ustedes</h1>
 
-        <!-- Texto secundario aumentado en tamaño y color azul claro -->
+        <!-- Texto secundario azul oscuro aumentado -->
         <p class="commitment">
           Gracias a su preferencia seguimos creciendo juntos,<br>
           enfocados en ofrecer un servicio humano, preciso y confiable<br>
           para las empresas que construyen nuestro país.
         </p>
 
-        <!-- Texto final en igual color y formato que el texto secundario -->
+        <!-- Texto final azul oscuro y formato original -->
         <p class="final-text">salud particular - salud ocupacional - laboratorio</p>
 
         <a class="cta" href="#contacto">Contáctanos</a>
@@ -345,7 +342,7 @@
       const alturaTop = topBar.getBoundingClientRect().height;
       const alturaNav = navbar.getBoundingClientRect().height;
 
-      const offsetPull = 100; // ajustable si necesitas que el banner suba más
+      const offsetPull = 100;
       let altura = alturaTop + alturaNav - offsetPull;
       if (altura < 0) altura = 0;
       spacer.style.height = Math.round(altura) + 'px';
@@ -361,7 +358,7 @@
         if (!slides || slides.length === 0) return;
         let current = 0;
         const total = slides.length;
-        const interval = 5000; // ms
+        const interval = 5000;
 
         function goNext() {
           slides[current].classList.remove('active');
