@@ -146,9 +146,9 @@
       opacity: 0.95;
     }
 
-    /* Texto principal: dorado oscuro seleccionado (#B78A28) */
+    /* Texto principal: color azul verdoso destacado (#2a7f62) */
     .hero h1 {
-      color: #B78A28;
+      color: #2a7f62;
       font-size: 34px;
       line-height: 1.12;
       font-weight: 700;
@@ -156,24 +156,25 @@
       white-space: nowrap; /* asegurar una sola línea en pantallas anchas */
     }
 
-    /* Texto secundario: ahora en negrilla, un poco más grande y alargado */
+    /* Texto secundario: negrilla, más grande y alargado */
     .commitment {
-      color: rgba(0,51,102,0.95);
-      font-size: 20px; /* ligeramente más grande */
-      font-weight: 700; /* EN NEGRILLA segun tu pedido */
-      line-height: 1.6;  /* más separación para alargado */
+      color: rgba(0,102,153,0.95); /* azul más vibrante que el original */
+      font-size: 22px; /* aumentado */
+      font-weight: 700; 
+      line-height: 1.6;
       margin-bottom: 14px;
       max-width: 980px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    /* Empresa al final, más pequeña que el h1, manteniendo estilo */
-    .tagline {
+    /* Texto final reemplazado con estilo y márgenes */
+    .final-text {
       color: rgba(0,51,102,0.88);
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 500;
-      margin-bottom: 14px;
+      margin-bottom: 22px;
+      letter-spacing: 0.5px;
     }
 
     .cta {
@@ -215,7 +216,7 @@
       #siteLogo, #distintivo { height: 64px; }
       .navbar { height: 68px; padding: 6px 24px; }
       .hero h1 { font-size: 30px; white-space: normal; } /* permitir wrap en pantallas más pequeñas */
-      .commitment { font-size: 18px; }
+      .commitment { font-size: 20px; }
       .nav-links { gap: 18px; transform: translateX(-12px); }
       .hero .micro-title { font-size: 12px; }
     }
@@ -229,9 +230,9 @@
       .hero { min-height: 60vh; padding: 12px; }
       .hero .text-box { padding: 12px 14px; width: 95%; }
       .hero h1 { font-size: 22px; }
-      .commitment { font-size: 16px; line-height:1.5; }
-      .tagline { font-size: 13px; }
-      .hero .micro-title { font-size: 11px; letter-spacing: 0.6px; }
+      .commitment { font-size: 18px; line-height:1.5; }
+      .final-text { font-size: 14px; margin-bottom: 16px; }
+      .cta { padding: 10px 16px; font-size: 14px; }
     }
   </style>
 </head>
@@ -276,18 +277,18 @@
         <!-- Restaurada: micro-title superior -->
         <div class="micro-title">IPS LABORATORIO CLÍNICO COLOMBIANO DE ORIENTE S.A.S</div>
 
-        <!-- Texto principal en dorado oscuro y en una sola línea en pantallas anchas -->
-        <h1>mas de 30 años creciendo junto a ustedes</h1>
+        <!-- Primera línea cambiada de texto y color -->
+        <h1>Más de 30 años creciendo junto a ustedes</h1>
 
-        <!-- Texto secundario: en negrilla, ligeramente más grande y alargado -->
+        <!-- Texto secundario aumentado en tamaño y en negrilla -->
         <p class="commitment">
           Gracias a su preferencia seguimos creciendo juntos,<br>
           enfocados en ofrecer un servicio humano, preciso y confiable<br>
           para las empresas que construyen nuestro país.
         </p>
 
-        <!-- Empresa al final, más pequeña -->
-        <p class="tagline">IPS LABORATORIO CLÍNICO COLOMBIANO DE ORIENTE S.A.S</p>
+        <!-- Texto final reemplazado -->
+        <p class="final-text">salud particular - salud ocupacional - laboratorio</p>
 
         <a class="cta" href="#contacto">Contáctanos</a>
       </div>
@@ -366,6 +367,4 @@
         setInterval(goNext, interval);
       });
     })();
-  </script>
-</body>
-</html>
+  </
