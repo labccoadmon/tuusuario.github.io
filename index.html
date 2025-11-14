@@ -45,10 +45,10 @@
       display: flex;
       align-items: center;
       position: relative;
-      margin-left: 10px;
+      margin-left: 20px; /* desplazado más a la derecha */
       font-size: 13px;
       font-weight: 400;
-      color: #e6ecf1;
+      color: #1a4d7a; /* azul para armonizar con logo */
       white-space: nowrap;
     }
 
@@ -57,7 +57,7 @@
     /* ===== NAVBAR ===== */
     .navbar {
       position: sticky;
-      top: 46px; /* justo debajo de la top-bar */
+      top: 46px;
       background: #fff;
       display: flex;
       align-items: center;
@@ -87,7 +87,6 @@
       position: relative;
     }
 
-    /* Contenedor para distintivo + texto extra */
     .distintivo-container {
       display: flex;
       align-items: center;
@@ -96,10 +95,11 @@
     }
 
     .brand-extra {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 400;
-      color: rgba(16,50,74,0.6);
+      color: #1a4d7a;
       white-space: nowrap;
+      margin-left: 20px;
     }
 
     .nav-links {
@@ -108,7 +108,7 @@
       align-items:center;
       justify-content:center;
       margin-right: 0;
-      transform: translateX(-24px); /* pequeño ajuste visual */
+      transform: translateX(-24px);
     }
     .nav-links a { font-weight:500; color: #10324a; font-size: 18px; padding: 6px 4px; }
     .nav-links a:hover { color: #0077cc; }
@@ -154,6 +154,7 @@
       align-items: center;
       margin: 0 auto;
       text-align: center;
+      overflow: hidden; /* para evitar que el texto salga */
     }
 
     .hero .text-box {
@@ -168,18 +169,21 @@
 
     /* Eliminado micro-title del banner */
 
-    /* Texto principal: azul claro #3a90ee, destacado y en una línea */
+    /* Texto principal: azul medio #2a5d8f, centrado y sin desbordar */
     .hero h1 {
-      color: #3a90ee;
+      color: #2a5d8f;
       font-size: 34px;
       line-height: 1.12;
       font-weight: 700;
       margin-bottom: 12px;
-      white-space: nowrap;
+      white-space: normal; /* permite que haga wrap si es necesario */
+      max-width: 90vw; /* limita ancho para evitar desborde */
+      margin-left: auto;
+      margin-right: auto;
       text-align: center;
     }
 
-    /* Texto secundario: azul oscuro original #003366, negrilla, más grande */
+    /* Texto secundario: azul oscuro #003366, negrilla, tamaño aumentado */
     .commitment {
       color: #003366;
       font-size: 22px;
@@ -192,7 +196,7 @@
       text-align: center;
     }
 
-    /* Texto final: azul oscuro #003366, tamaño y formato original */
+    /* Texto servicios modificado, azul oscuro, pequeño y en línea */
     .final-text {
       color: #003366;
       font-size: 15px;
@@ -200,6 +204,7 @@
       margin-bottom: 22px;
       letter-spacing: 0.5px;
       text-align: center;
+      white-space: nowrap;
     }
 
     .cta {
@@ -241,10 +246,10 @@
     @media (max-width: 900px) {
       #siteLogo, #distintivo { height: 64px; }
       .navbar { height: 68px; padding: 6px 24px; }
-      .hero h1 { font-size: 30px; white-space: normal; } 
+      .hero h1 { font-size: 30px; } 
       .commitment { font-size: 20px; }
       .nav-links { gap: 18px; transform: translateX(-12px); }
-      .final-text { font-size: 15px; }
+      .final-text { font-size: 15px; white-space: normal; }
     }
     @media (max-width: 520px) {
       .top-bar { flex-direction: column; gap: 8px; font-size:13px; padding:10px; text-align:center; }
@@ -257,7 +262,7 @@
       .hero .text-box { padding: 12px 14px; width: 95%; }
       .hero h1 { font-size: 22px; }
       .commitment { font-size: 18px; line-height:1.5; }
-      .final-text { font-size: 15px; margin-bottom: 16px; }
+      .final-text { font-size: 15px; margin-bottom: 16px; white-space: normal; }
       .cta { padding: 10px 16px; font-size: 14px; }
       .top-bar .brand-extra { font-size: 11px; margin-left: 6px;}
     }
@@ -304,7 +309,6 @@
 
     <div class="container">
       <div class="text-box" role="heading" aria-level="1">
-
         <h1>Más de 30 años creciendo junto a ustedes</h1>
 
         <p class="commitment">
@@ -313,14 +317,13 @@
           para las empresas que construyen nuestro país.
         </p>
 
-        <p class="final-text">salud particular - salud ocupacional - laboratorio</p>
+        <p class="final-text">Medicina particular - Salud ocupacional - Laboratorio - Visiometria - Audiometria</p>
 
         <p style="color: #003366; font-size: 15px; font-weight: 500; margin-top: -12px; margin-bottom: 22px; cursor: pointer;">
           <a href="#contacto" style="color: #003366; text-decoration: underline;">Contáctanos para más información</a>
         </p>
 
         <a class="cta" href="#contacto">Contáctanos</a>
-
       </div>
     </div>
   </section>
