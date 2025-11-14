@@ -39,16 +39,49 @@
       font-size: 15px;
     }
     .top-bar a { color: #fff; display:inline-flex; gap:8px; align-items:center; }
-    .top-bar .horario { text-transform: lowercase; }
+    .top-bar .horario {
+      text-transform: lowercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .top-bar .horario::before {
+      content: "⏰";
+      font-size: 15px;
+      color: #ffffff;
+    }
+
+    /* Separadores verticales blancos entre items de la barra */
+    .top-bar .left, .top-bar .right > div {
+      position: relative;
+      padding: 0 10px;
+    }
+    .top-bar .left:not(:last-child):after, 
+    .top-bar .right > div:not(:last-child):after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background-color: white;
+      opacity: 0.7;
+    }
+
+    .top-bar .right {
+      display: flex; 
+      gap: 18px; 
+      align-items: center;
+    }
 
     .top-bar .brand-extra {
       display: flex;
       align-items: center;
       position: relative;
-      margin-left: 20px; /* desplazado más a la derecha */
+      margin-left: 20px;
       font-size: 13px;
       font-weight: 400;
-      color: #1a4d7a; /* azul para armonizar con logo */
+      color: #1a4d7a;
       white-space: nowrap;
     }
 
@@ -147,37 +180,34 @@
     .hero .container {
       position: relative;
       z-index: 2;
-      max-width: 1200px;
+      max-width: 1250px; /* aumenté un poco para el texto largo */
       padding: 14px;
       display:flex;
       flex-direction: column;
       align-items: center;
       margin: 0 auto;
       text-align: center;
-      overflow: hidden; /* para evitar que el texto salga */
+      overflow: hidden;
     }
 
     .hero .text-box {
       background: rgba(255,255,255,0.55);
-      padding: 16px 28px;
+      padding: 16px 40px; /* ampliado para el texto largo */
       border-radius: 10px;
       box-shadow: 0 8px 24px rgba(16,50,74,0.09);
       display: inline-block;
       width: 96%;
-      max-width: 1080px;
+      max-width: 1100px;
     }
 
-    /* Eliminado micro-title del banner */
-
-    /* Texto principal: azul medio #2a5d8f, centrado y sin desbordar */
+    /* Texto principal: azul medio #2a5d8f, centrado, una sola línea */
     .hero h1 {
       color: #2a5d8f;
       font-size: 34px;
-      line-height: 1.12;
       font-weight: 700;
       margin-bottom: 12px;
-      white-space: normal; /* permite que haga wrap si es necesario */
-      max-width: 90vw; /* limita ancho para evitar desborde */
+      white-space: nowrap;
+      overflow-wrap: normal;
       margin-left: auto;
       margin-right: auto;
       text-align: center;
@@ -194,6 +224,7 @@
       margin-left: auto;
       margin-right: auto;
       text-align: center;
+      white-space: normal;
     }
 
     /* Texto servicios modificado, azul oscuro, pequeño y en línea */
@@ -238,6 +269,10 @@
     }
 
     /* ===== RESPONSIVE ===== */
+    @media (max-width: 1250px) {
+      .hero .container { max-width: 1150px; }
+      .hero .text-box { max-width: 1020px; padding: 16px 36px; }
+    }
     @media (max-width: 1100px) {
       .hero .container { max-width: 920px; }
       .hero .text-box { max-width: 880px; padding: 14px 20px; }
@@ -246,13 +281,19 @@
     @media (max-width: 900px) {
       #siteLogo, #distintivo { height: 64px; }
       .navbar { height: 68px; padding: 6px 24px; }
-      .hero h1 { font-size: 30px; } 
+      .hero h1 { font-size: 30px; white-space: normal; } 
       .commitment { font-size: 20px; }
       .nav-links { gap: 18px; transform: translateX(-12px); }
       .final-text { font-size: 15px; white-space: normal; }
     }
     @media (max-width: 520px) {
       .top-bar { flex-direction: column; gap: 8px; font-size:13px; padding:10px; text-align:center; }
+
+      .top-bar .left:not(:last-child):after,
+      .top-bar .right > div:not(:last-child):after {
+        display: none;
+      }
+
       .spacer-top { height: 46px; }
       .navbar { flex-direction: column; padding: 10px 16px; height: auto; align-items: center; gap: 8px; }
       .brand { flex-direction: column; gap: 6px; }
@@ -271,11 +312,11 @@
 <body>
   <!-- TOP BAR -->
   <div class="top-bar" role="banner" aria-label="Información de contacto">
-    <div class="left">Horario: <span style="font-weight:700;">Lun - Vie 7am - 12m / 2pm - 5pm | Sáb 8am - 11am</span></div>
-    <div class="right" style="display:flex; gap:18px; align-items:center;">
+    <div class="left horario">Horario: Lun - Vie 7am - 12m / 2pm - 5pm | Sáb 8am - 11am</div>
+    <div class="right">
       <div>📞 <strong>531 13 54</strong></div>
-      <div>📱 <a href="https://wa.me/573128274796" target="_blank" rel="noopener" style="color:#fff; text-decoration:none;">312 827 4796</a></div>
-      <div>✉ <a href="mailto:calidad@labccosas.com" style="color:#fff; text-decoration:underline;">calidad@labccosas.com</a></div>
+      <div>📱 <a href="https://wa.me/573128274796" target="_blank" rel="noopener">312 827 4796</a></div>
+      <div>✉ <a href="mailto:calidad@labccosas.com">calidad@labccosas.com</a></div>
     </div>
   </div>
 
@@ -310,19 +351,15 @@
     <div class="container">
       <div class="text-box" role="heading" aria-level="1">
         <h1>Más de 30 años creciendo junto a ustedes</h1>
-
         <p class="commitment">
           Gracias a su preferencia seguimos creciendo juntos,<br>
           enfocados en ofrecer un servicio humano, preciso y confiable<br>
           para las empresas que construyen nuestro país.
         </p>
-
         <p class="final-text">Medicina particular - Salud ocupacional - Laboratorio - Visiometria - Audiometria</p>
-
         <p style="color: #003366; font-size: 15px; font-weight: 500; margin-top: -12px; margin-bottom: 22px; cursor: pointer;">
           <a href="#contacto" style="color: #003366; text-decoration: underline;">Contáctanos para más información</a>
         </p>
-
         <a class="cta" href="#contacto">Contáctanos</a>
       </div>
     </div>
